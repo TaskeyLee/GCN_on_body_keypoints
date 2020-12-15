@@ -1,4 +1,8 @@
 GCN_on_body_keypoints
 此工程目的在于随便研究研究+毕业
+
+功能：
+1、基于openpose检测单张图片中人体关键点，并使用DGL构建graph，供后续搭建网络
+
 需要提前配置openpose库，并将GCN_on_body_keypoints文件夹及其内部文件拷贝至openpose-master\build\examples\tutorial_api_python中，方可正常使用
-使用时运行body_points_to_graph.py文件
+使用时运行body_points_to_graph.py文件，并在第九行代码处更改为自己的图片路径

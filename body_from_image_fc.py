@@ -6,7 +6,7 @@ import os
 from sys import platform
 # import argparse
 
-def body_points(image_path):
+def get_body_points(image_path):
     try:
         # Import Openpose (Windows/Ubuntu/OSX)
         dir_path = os.path.dirname(os.path.realpath('__file__'))
@@ -27,31 +27,9 @@ def body_points(image_path):
             print('Error: OpenPose library could not be found. Did you enable `BUILD_PYTHON` in CMake and have this Python script in the right folder?')
             raise e
     
-        # # Flags
-        # parser = argparse.ArgumentParser()
-        # parser.add_argument("--image_path", default = "C:/Users/lab/Desktop/taskey/action_video_test/2.jpg", help="Process an image. Read all standard formats (jpg, png, bmp, etc.).")
-        # # parser.add_argument("--video_path", default="examples/media/video.avi", help="Process an image. Read all standard formats (jpg, png, bmp, etc.).")
-        # args = parser.parse_known_args()
-    
         # Custom Params (refer to include/openpose/flags.hpp for more parameters)
         params = dict()
         params["model_folder"] = "../../../../models/"
-    
-        # Add others in path?
-        # for i in range(0, len(args[1])):
-        #     curr_item = args[1][i]
-        #     if i != len(args[1])-1: next_item = args[1][i+1]
-        #     else: next_item = "1"
-        #     if "--" in curr_item and "--" in next_item:
-        #         key = curr_item.replace('-','')
-        #         if key not in params:  params[key] = "1"
-        #     elif "--" in curr_item and "--" not in next_item:
-        #         key = curr_item.replace('-','')
-        #         if key not in params: params[key] = next_item
-    
-        # Construct it from system arguments
-        # op.init_argv(args[1])
-        # oppython = op.OpenposePython()
     
         # Starting OpenPose
         opWrapper = op.WrapperPython()
